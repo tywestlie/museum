@@ -20,10 +20,11 @@ class TestMuseum < Minitest::Test
     assert_equal a, dmns.exhibits
   end
 
-  def test_admit_one_patron
+  def test_patron_exists_in_museum
     dmns = Museum.new("Denver Museum of Natural Science")
     dmns.create_patrons("Sally")
 
-    assert_equal "Sally", dmns.patrons[0].name
+    assert_instance_of Patron, dmns.new_patron[0]
   end
+  
 end

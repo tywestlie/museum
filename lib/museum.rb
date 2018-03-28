@@ -1,14 +1,13 @@
-require 'pry'
 require './lib/patron'
 class Museum
 
-  attr_reader :museum, :exhibits, :revnue, :patrons
+  attr_reader :museum, :exhibits, :revnue, :new_patron
 
   def initialize(museum)
     @museum = museum
     @exhibits = Hash.new
-    @patrons = []
     @revnue = 0
+    @new_patron = []
   end
 
   def add_exhibit(name, cost)
@@ -16,7 +15,12 @@ class Museum
   end
 
   def create_patrons(name)
-    @patrons << Patron.new(name)
+    # require 'pry';binding.pry
+     @new_patron << Patron.new(name)
+     # @patrons[new_patron] = interests
+  end
+
+  def add_interests(interests)
   end
 
   def admit
